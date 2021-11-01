@@ -6,27 +6,27 @@ public class Game {
         return  (int) (Math.random() * artifacts.length);
     }
 
-    public String playRound(int computerChoice, int playerChoice) {
+    public String playRound(int computerChoice, int playerChoiceIndex) {
         String result = "Win";
-        int difChoice = Math.abs(computerChoice - playerChoice) % 2;
-        int winnerMin = Math.min(computerChoice, playerChoice);
-        int winnerMax = Math.max(computerChoice, playerChoice);
+        int difChoice = Math.abs(computerChoice - playerChoiceIndex) % 2;
+        int winnerMin = Math.min(computerChoice, playerChoiceIndex);
+        int winnerMax = Math.max(computerChoice, playerChoiceIndex);
 
         switch (difChoice) {
             case 0:
-                if (computerChoice == playerChoice) {
-                    result = "Draw";
-                } else if (winnerMin == playerChoice) {
-                    result = "Win";
+                if (computerChoice == playerChoiceIndex) {
+                    result = "You Draw";
+                } else if (winnerMin == playerChoiceIndex) {
+                    result = "You Win";
                 } else {
-                    result = "Lose";
+                    result = "You Lose";
                 }
                 break;
             case 1:
-                if (winnerMax == playerChoice) {
-                    result = "Win";
+                if (winnerMax == playerChoiceIndex) {
+                    result = "You Win";
                 } else {
-                    result = "Lose";
+                    result = " You Lose";
                 }
                 break;
         }
